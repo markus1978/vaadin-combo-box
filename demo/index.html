@@ -76,6 +76,29 @@
         </script>
       </template>
     </demo-snippet>
+  
+    <h3>Using sizing and styling.</h3>
+    <demo-snippet>
+      <template>
+        <style is="custom-style">
+          :host {
+            --vaadin-combo-box-overlay-max-height: 120px;
+            --vaadin-combo-box-item: {
+              font-size: 10pt;
+              padding: 3px 4px;
+            };
+          }
+        </style>
+        
+        <vaadin-combo-box id='demo3' label="Element" combo-box-width="150"></vaadin-combo-box>
+        
+        <script>
+          var combobox = document.querySelector('#demo3');
+          // The elements is an array of String values.
+          combobox.items = elements;
+        </script>
+      </template>
+    </demo-snippet>
 
   </div>
 </body>

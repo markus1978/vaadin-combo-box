@@ -29,6 +29,14 @@
       _alignedAbove: {
         type: Boolean,
         value: false
+      },
+  
+      /**
+       * Combo box width.
+       */
+      comboBoxWidth: {
+        type: Number,
+        value: -1,
       }
     },
 
@@ -135,7 +143,11 @@
       this._translateY = Math.round(this._translateY * _devicePixelRatio) / _devicePixelRatio;
       this.translate3d(this._translateX + 'px', this._translateY + 'px', '0');
 
-      this.style.width = this.positionTarget.clientWidth + 'px';
+      if (this.comboBoxWidth != -1) {
+        this.style.width = this.comboBoxWidth + 'px';
+      } else {
+        this.style.width = this.positionTarget.clientWidth + 'px';
+      }
 
       this.updateViewportBoundaries();
     },
