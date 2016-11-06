@@ -35,7 +35,7 @@
        * Combo box width.
        */
       comboBoxWidth: {
-        type: Number,
+        type: String,
         value: -1,
       }
     },
@@ -142,9 +142,15 @@
       this._translateX = Math.round(this._translateX * _devicePixelRatio) / _devicePixelRatio;
       this._translateY = Math.round(this._translateY * _devicePixelRatio) / _devicePixelRatio;
       this.translate3d(this._translateX + 'px', this._translateY + 'px', '0');
-
+      
       if (this.comboBoxWidth != -1) {
-        this.style.width = this.comboBoxWidth + 'px';
+        var customWidth = this.comboBoxWidth.trim();
+        if (customWidth.slice(-1) == '%') {
+          var number = parseInt(customWidth.substring(0, customWidth.length - 1));
+          this.style.width = ((this.positionTarget.clientWidth * number) / 100) + 'px';
+        } else {
+          this.style.width = this.comboBoxWidth;
+        }
       } else {
         this.style.width = this.positionTarget.clientWidth + 'px';
       }

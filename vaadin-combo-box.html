@@ -325,10 +325,11 @@ Custom property | Description | Default
       },
   
       /**
-       * Combo box width.
+       * Combo box width. Css width values can be given. If a percentage value is given, the width is calculated
+       * relative to the input element.
        */
       comboBoxWidth: {
-        type: Number,
+        type: String,
         value: -1,
       }
     },

@@ -81,16 +81,16 @@
     <demo-snippet>
       <template>
         <style is="custom-style">
-          :host {
+          vaadin-combo-box {
             --vaadin-combo-box-overlay-max-height: 120px;
             --vaadin-combo-box-item: {
-              font-size: 10pt;
               padding: 3px 4px;
+              font-size: 10pt;
             };
           }
         </style>
         
-        <vaadin-combo-box id='demo3' label="Element" combo-box-width="150"></vaadin-combo-box>
+        <vaadin-combo-box id='demo3' label="Element" combo-box-width="90%"></vaadin-combo-box>
         
         <script>
           var combobox = document.querySelector('#demo3');
